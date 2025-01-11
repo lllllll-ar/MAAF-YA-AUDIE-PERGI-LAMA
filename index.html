@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('backround.webp') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+            background: url('heart.png') no-repeat center center;
+            background-size: contain;
+            position: relative;
+            cursor: pointer;
+            animation: heartbeat 1s infinite;
+            margin: 0 auto;
+        }
+        #clickMessage {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ff69b4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .hidden {
+            display: none;
+        }
+        .frame {
+            margin-top: 20px;
+            padding: 20px;
+            border: 5px solid #ffffff;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .next-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FF6347;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #FF4500;
+        }
+        .frame-text {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        #page6 {
+            overflow-y: auto; /* Mengizinkan scroll pada halaman terakhir */
+            max-height: 100vh;
+        }
+
+        #page4 {
+            overflow-y: auto; /* Mengizinkan scroll pada halaman terakhir */
+            max-height: 100vh;
+        }
+
+        #page5 {
+            overflow-y: auto; /* Mengizinkan scroll pada halaman terakhir */
+            max-height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Audio element added but set to not autoplay initially -->
+    <audio id="background-audio">
+        <source src="Gempi - Ajaib (Official Lyric Video).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="page1">
+        <div class="heart" onclick="heartClicked()"></div>
+        <div id="clickMessage">Pencet ga hatinya!!! Maksa gue ini</div>
+    </div>
+
+    <div id="page2" class="hidden">
+        <div class="frame">
+            <img src="hallo.gif" alt="Framed Content" style="max-width: 100%; height: auto;">
+            <div class="frame-text">Hallo kak Milan!</div>
+        </div>
+        <button class="next-button" onclick="nextPage(3)">Next</button>
+    </div>
+
+    <div id="page3" class="hidden">
+        <div class="frame">
+            <img src="pesann.gif" alt="Framed Content" style="max-width: 100%; height: auto;">
+            <div class="frame-text">Audie ada pesan nih buat kak Milan</div>
+        </div>
+        <button class="next-button" onclick="nextPage(4)">Next</button>
+    </div>
+
+    <div id="page4" class="hidden">
+        <div class="frame">
+            <img src="kakak.gif" alt="Framed Content" style="max-width: 100%; height: auto;">
+            <div class="frame-text">Gue tau sih lu kadang ngeselin, tapi tetep aja gue nggak bisa jauh dari lu. Mskipun kadang kelakuan lu bikin gue pengen ngilang sebentar. Makasih ya kak, udah jadi superhero yang kuat dan hebat yang selalu ada kapan aja gue butuh. Lu pinter bikin suasana jadi lebih hidup dengan cara-cara konyol dan nggak terduga. Tanpa lu hidup gue mungkin bakal lebih membosankan, kayak jalan tol yang lurus tanpa belokan. Walaupun suka kesel, gue tetap bersyukur punya lu karena lu bikin setiap hari jadi lebih seru dan penuh warna.</div>
+        </div>
+        <button class="next-button" onclick="nextPage(5)">Next</button>
+    </div>
+
+    <div id="page5" class="hidden">
+        <div class="frame">
+            <img src="kesehatan.gif" alt="Framed Content" style="max-width: 100%; height: auto;">
+            <div class="frame-text">Kak, gue cuma mau ingetin buat selalu jaga kesehatan dan diri lu. Jangan sampe kerja keras atau segala hal yang lu lakuin bikin lu lupa buat ngerawat diri. Kesehatan itu penting banget baik fisik maupun mental, karena lu nggak bisa bahagia kalo badan lu nggak sehat. Luangin waktu buat istirahat, makan dengan baik, dan jangan lupa senyum. Bahagia itu nggak selalu soal besar, tapi soal bisa nikmatin hal kecil yang ada di sekitar kita. Gue cuma pengen liat lu selalu sehat, bahagia, dan tetap jadi superhero yang keren seperti sekarang.</div>
+        </div> 
+        <button class="next-button" onclick="nextPage(6)">Next</button>
+    </div>
+
+    <div id="page6" class="hidden">
+        <div class="frame">
+            <img src="RoseJaehyun.jpg" alt="Framed Content" style="max-width: 100%; height: auto;">
+            <div class="frame-text">Hey Kak Milan,
+
+                I just want to take a moment to say thank you for always being there in my life. Lu mungkin nggak sadar, tapi kehadiran lu itu punya dampak besar buat gue. Every time I look at you, I learn so much—how to stay strong, how to stay calm even when life gets messy, and how to be myself no matter what kind of pressure comes my way.
+                
+                Gue tahu, jalan hidup nggak selalu mulus, dan kadang apa yang kita rencanain nggak berjalan sesuai harapan. Tapi, Kak, I truly believe you’ll always find a way to get through it in your own unique style. Lu tuh luar biasa, bahkan di saat-saat tersulit sekalipun. Gue cuma mau bilang, apa pun yang lagi lu hadapin sekarang, gue percaya banget sama lu dan bakal selalu dukung lu sampai kapan pun.
+                
+                Oh iya, Kak, don’t forget to enjoy the little moments too. Hidup itu nggak selalu soal ngejar tujuan besar atau hasil akhir, tapi juga tentang menikmati setiap langkah kecil dalam perjalanan. Gue harap lu bisa nemuin hal-hal kecil yang bikin lu bahagia, entah dari orang-orang yang lu sayang, momen-momen random, atau hal-hal kecil yang bikin lu senyum tanpa sadar.
+                
+                And lastly, kak gue harap lu selalu inget satu hal, gue bakal selalu ada buat lu sama kayak lu yang selalu ada buat gue. You’re amazing just the way you are, and I couldn’t be more proud to call you my brother.
+                
+                Keep being the incredible person you are, Kak. Gue sayang banget sama lu, dan gue bakal selalu jadi orang yang ngedukung lu di setiap langkah lu.</div>
+        </div> 
+    </div>
+
+
+    <script>
+        let currentPage = 2;
+
+        // Play the background audio when the heart is clicked
+        function heartClicked() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            
+            // Start the audio when the user clicks the heart
+            var audio = document.getElementById('background-audio');
+            audio.play();
+        }
+
+        function nextPage(pageNumber) {
+            document.getElementById('page' + currentPage).classList.add('hidden');
+            document.getElementById('page' + pageNumber).classList.remove('hidden');
+            currentPage = pageNumber;
+        }
+
+        function finish() {
+            alert('Thank you for viewing the pages!');
+            // Optionally reset to first page or navigate elsewhere
+            document.getElementById('page5').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+            currentPage = 1;
+        }
+    </script>
+</body>
+</html>
